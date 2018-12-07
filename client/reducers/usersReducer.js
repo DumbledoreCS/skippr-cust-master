@@ -8,7 +8,8 @@ const initialState = {
   phone: null,
   emailField: '',
   passwordField: '',
-  logged: false
+  logged: false,
+  test: 'test'
 };
 
 const userReducer = (state=initialState, action) => {

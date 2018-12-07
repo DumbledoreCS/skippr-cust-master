@@ -1,5 +1,6 @@
 // import actionType constants
 import * as types from '../constants/actionTypes';
+import { NavigationActions } from 'react-navigation';
 
 export const logEmail = (text) => ({
   type: types.LOG_EMAIL,
@@ -35,7 +36,10 @@ export const logIn = (state) => {
           type: types.LOG_IN,
           payload: user,
         });
-      });
+      })
+      .then(()=> {
+        
+      })
   };
 };
 
