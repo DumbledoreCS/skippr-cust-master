@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
 function Logged(props) {
   const checkLog = props.user.logged;
   if (!checkLog) {
-    return <Login />;
+    return <Logged />;
   }
   return <Main />;
 }

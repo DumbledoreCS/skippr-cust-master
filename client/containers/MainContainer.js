@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
 // import from child components...
 import Logged from '../components/Logged';
-// import Login from '../components/Login';
+import Login from '../components/Login';
+import Home from '../components/Home';
 // import Main from '../components/Main';
 
 const mapStateToProps = store => ({
@@ -23,17 +24,18 @@ class MainContainer extends React.Component {
   }
 
   render() {
+
     return(
       <View style={styles.container}>
-        <Text style={styles.subtitle}>Ready to skip the line to your favorite shop?!</Text>
-        <Logged />
+          
+      {this.props.user.logged?<Home />: <Login />}
       </View>
     )
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
-
+const { width } = Dimensions.get('window')
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,6 +45,7 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     backgroundColor: 'white',
     alignItems: 'center',
+    width: width
   },
   subtitle: {
     fontSize: 20,
